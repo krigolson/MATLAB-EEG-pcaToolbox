@@ -35,9 +35,12 @@ function [PCAResults TSPCAResults] = temporalSpatialPCA(data,channelLocations,ti
     
     TSPCAResults.scoreData = scoreData;
     
+    size(scoreData)
+    
     for counter = 1:size(scoreData,2)
         CIs = makeCIs(scoreData(:,counter));
-        yErr(counter) = CIs(4);
+        size(CIs)
+        yErr(counter) = CIs(3);
         y(counter) = CIs(1);
     end
     
