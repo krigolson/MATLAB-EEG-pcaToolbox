@@ -11,7 +11,7 @@ function [PCAResults STPCAResults] = spatialTemporalPCA(data,channelLocations,ti
 
     PCAResults = [];
     
-    [PCAResults] = ep_doPCA('asis',srotation,'3','COV',10,spatialPCAData,'N','N');
+    [PCAResults] = ep_doPCA('asis',srotation,'3','COV',10,spatialPCAData,'K','N');
 
     [PCAResults] = reconstructSpatialPCAData(data,PCAResults);
 
@@ -23,7 +23,7 @@ function [PCAResults STPCAResults] = spatialTemporalPCA(data,channelLocations,ti
     
     [spatialTemporalData] = prepareSpatialTemporalData(temporalData);
     
-    [STPCAResults] = ep_doPCA('asis',trotation,'3','SVD','COV',10,spatialTemporalData,'N','N');
+    [STPCAResults] = ep_doPCA('asis',trotation,'3','COV',10,spatialTemporalData,'K','N');
     
     [STPCAResults] = reconstructSpatialTemporalPCAData(temporalData,STPCAResults);
     
