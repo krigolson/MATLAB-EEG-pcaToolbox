@@ -7,6 +7,7 @@ function [factorResults] = reconstructSpatialPCAData(data,factorResults)
     numberOfSubjects = size(data,4);
     numberOfTimepoints = size(data,2);
 
+    tempData = 0;
     tempData = factorResults.FacScr;
     tempData = tempData';
     virtualData = [];

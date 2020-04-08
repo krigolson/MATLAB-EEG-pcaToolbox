@@ -9,7 +9,7 @@ function [PCAResults TSPCAResults] = temporalSpatialPCA(data,channelLocations,ti
 
     [temporalPCAData] = prepareTemporalData(data);
 
-    [PCAResults] = ep_doPCA('asis',trotation,'3','COV',10,temporalPCAData,'N','N');
+    [PCAResults] = ep_doPCA('asis',trotation,'3','COV',10,temporalPCAData,'K','N');
 
     [PCAResults] = reconstructTemporalPCAData(data,PCAResults);
 
@@ -21,7 +21,7 @@ function [PCAResults TSPCAResults] = temporalSpatialPCA(data,channelLocations,ti
     
     [temporalspatialData] = prepareTemporalSpatialData(spatialData);
     
-    [TSPCAResults] = ep_doPCA('asis',srotation,'3','COV',10,temporalspatialData,'N','N');
+    [TSPCAResults] = ep_doPCA('asis',srotation,'3','COV',10,temporalspatialData,'K','N');
     
     [TSPCAResults] = reconstructTemporalSpatialPCAData(spatialData,TSPCAResults);
     
@@ -34,8 +34,6 @@ function [PCAResults TSPCAResults] = temporalSpatialPCA(data,channelLocations,ti
     scoreData = scoreData';
     
     TSPCAResults.scoreData = scoreData;
-    
-    size(scoreData)
     
     for counter = 1:size(scoreData,2)
         CIs = makeCIs(scoreData(:,counter));
