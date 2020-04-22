@@ -1,4 +1,4 @@
-function [PCAResults] = spatialPCA(data,channelLocations,rotation,minimumVariance);
+function [PCAResults] = spatialPCA(data,channelLocations,rotation,minimumVariance)
 
     % original PCA code from Joe Dien, shell code developed by O. Krigolson
     % supported rotations are 'IMAX' for ICA, 'PMAX' for Promax, and 'VMAX' for varimax rotations
